@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions</title>
+</head>
+<body>
+    <script>
+        function get_mode(arr) {
+            checked_numbers = [];
+            max_count = 0;
+            mode = null;
+            for (let i = 0; i < arr.length; i++) {
+                current_number = arr[i];
+                if (checked_numbers.indexOf(current_number) >= 0) {
+                    continue;
+                }
+                checked_numbers.push(arr[i]);
+                if (arr.indexOf(current_number) == arr.lastIndexOf(current_number)) {
+                    continue;
+                }
+                occurance_count = 0;
+                for (let j = i; j < arr.length; j++) {
+                    if (arr[j] == current_number) {
+                        occurance_count++;
+                    }
+                }
+                if (occurance_count > max_count) {
+                    max_count = occurance_count;
+                    mode = current_number;
+                }
+            }
+            return mode;
+        }
+        
+        // keep this function call here 
+        console.log(get_mode([5, 3, 3, 3, 1]));
+        console.log(get_mode([1, 2, 3]));
+        console.log(get_mode([4, 4, 4, 6, 2]));
+    </script>
+</body>
+</html>
