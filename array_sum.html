@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array sum</title>
+</head>
+<body>
+    <script>
+        // Get the sum of an array
+        function get_sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+        
+        // keep this function call here 
+        console.log(get_sum([5, 3, 3, 3, 1]));
+        console.log(get_sum([1, 2, 3]));
+        console.log(get_sum([4, 4, 4, 6, 2]));
+    </script>
+</body>
+</html>

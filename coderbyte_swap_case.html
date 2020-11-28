@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Swap Case</title>
+</head>
+<body>
+    <script>
+        // Swap Case
+        // Have the function SwapCase(str) take the str parameter and swap the case of each character. For example: if str is "Hello World" the output should be hELLO wORLD. Let numbers and symbols stay the way they are.
+
+        function SwapCase(str) {
+            swapped_str = '';
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === str[i].toLowerCase()) {
+                    swapped_str += str[i].toUpperCase();
+                } else {
+                    swapped_str += str[i].toLowerCase();
+                }
+            }
+
+            return swapped_str;
+        }
+
+        console.log(SwapCase("Hello World"));
+        console.log(SwapCase("Hello-LOL"));
+        console.log(SwapCase("Sup DUDE!!?"));
+    </script>
+</body>
+</html>

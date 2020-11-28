@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte</title>
+</head>
+<body>
+    <script>
+        // Get the power set of an array
+
+        function powerset(arr) {
+            let powerset = [[]];
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0, len = powerset.length; j < len; j++) {
+                    powerset.push(powerset[j].concat(arr[i]));
+                }
+            }
+            return powerset;
+        }
+
+        function sum(arr) {
+            var total = 0;
+            for (var i = 0; i < arr.length; i++) {
+                total += arr[i];
+            }
+            return total;
+        }
+
+        function findSum(numbers, targetSum) {
+            var numberSets = powerset(numbers);
+            for (var i=0; i < numberSets.length; i++) {
+                var numberSet = numberSets[i];
+                if (sum(numberSet) == targetSum) {
+                    return numberSet;
+                }
+            }
+        }
+
+        // console.log(findSum([1,2,3,4,5],6));
+        // console.log(powerset([1,2,3,4,5]));
+        console.log(powerset([1]));
+    </script>
+</body>
+</html>

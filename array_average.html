@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array average</title>
+</head>
+<body>
+    <script>
+        // Get the sum of an array
+        function get_sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+        function get_average(arr) {
+            if (arr.length == 0) {
+                return null;
+            }
+            sum = get_sum(arr);
+            return Math.round(sum/arr.length);
+        }
+        
+        // keep this function call here 
+        console.log(get_average([5, 3, 3, 3, 1]));
+        console.log(get_average([1, 2, 3]));
+        console.log(get_average([4, 4, 4, 6, 2]));
+    </script>
+</body>
+</html>

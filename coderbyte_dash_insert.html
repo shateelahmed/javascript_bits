@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Dash Insert</title>
+</head>
+<body>
+    <script>
+        // Dash Insert
+        // Have the function DashInsert(str) insert dashes ('-') between each two odd numbers in str. For example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number.
+
+        function is_odd(num) {
+            return num % 2 != 0 ? true : false;
+        }
+
+        function DashInsert(str) {
+            dashed_str = '';
+
+            for (let i = 0; i < str.length; i++) {
+                dashed_str += str[i];
+                num = parseInt(str[i]);
+                next_num = parseInt(str[i+1]);
+                if (is_odd(num) && is_odd(next_num)) {
+                    dashed_str += '-';
+                }
+            }
+            if (dashed_str[dashed_str.length-1] == '-') {
+                dashed_str = [...dashed_str];
+                dashed_str.pop();
+                dashed_str = dashed_str.join('');
+            }
+
+            return dashed_str;
+        }
+
+        console.log(DashInsert("454793"));
+        console.log(DashInsert("99946"));
+        console.log(DashInsert("56730"));
+    </script>
+</body>
+</html>

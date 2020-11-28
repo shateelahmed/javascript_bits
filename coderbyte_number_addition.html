@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Number Addition</title>
+</head>
+<body>
+    <script>
+        // Number Addition
+        // Have the function NumberSearch(str) take the str parameter, search for all the numbers in the string, add them together, then return that final number. For example: if str is "88Hello 3World!" the output should be 91. You will have to differentiate between single digit numbers and multiple digit numbers like in the example above. So "55Hello" and "5Hello 5" should return two different answers. Each string will contain at least one letter or symbol.
+
+        function get_sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i];
+            }
+            return sum;
+        }
+        function NumberAddition(str) {
+            found_numbers = str.match(/\d+/g);
+            if (!found_numbers) {
+                return 0;
+            }
+            found_numbers = found_numbers.map(num=> parseInt(num));
+            return get_sum(found_numbers);
+        }
+
+        console.log(NumberAddition("0000000"));
+        console.log(NumberAddition("88Hello 3World!"));
+        console.log(NumberAddition("55Hello"));
+        console.log(NumberAddition("5Hello 5"));
+        console.log(NumberAddition("75Number9"));
+        console.log(NumberAddition("10 2One Number*1*"));
+        console.log(NumberAddition("One12 12"));
+        console.log(NumberAddition("no numbers sorry**"));
+    </script>
+</body>
+</html>
