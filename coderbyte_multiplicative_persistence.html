@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Multiplicative Persistence</title>
+</head>
+<body>
+    <script>
+        // Multiplicative Persistence
+        // Have the function AdditivePersistence(num) take the num parameter being passed which will always be a positive integer and return its additive persistence which is the number of times you must add the digits in num until you reach a single digit. For example: if num is 2718 then your program should return 2 because 2 + 7 + 1 + 8 = 18 and 1 + 8 = 9 and you stop at 9.
+
+        function get_multiplication(arr) {
+            var multiplication = 1;
+            for (var i = 0; i < arr.length; i++) {
+                multiplication *= parseInt(arr[i]);
+            }
+            return multiplication;
+        }
+
+        function MultiplicativePersistence(num) {
+            count = 0;
+            while (num >= 10) {
+                num = get_multiplication([...num.toString()]);
+                count++;
+            }
+            return count;
+        }
+
+        console.log(MultiplicativePersistence(39));
+        console.log(MultiplicativePersistence(4));
+        console.log(MultiplicativePersistence(25));
+    </script>
+</body>
+</html>

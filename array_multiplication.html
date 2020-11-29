@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array multiplication</title>
+</head>
+<body>
+    <script>
+        // Get the multiplication of an array
+        function get_multiplication(arr) {
+            var multiplication = 1;
+            for (var i = 0; i < arr.length; i++) {
+                multiplication *= parseInt(arr[i]);
+            }
+            return multiplication;
+        }
+        
+        // keep this function call here 
+        console.log(get_multiplication([5, 3, 3, 3, 1]));
+        console.log(get_multiplication([1, 2, 3]));
+        console.log(get_multiplication([4, 4, 4, 6, 2]));
+    </script>
+</body>
+</html>

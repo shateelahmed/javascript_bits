@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Superincreasing</title>
+</head>
+<body>
+    <script>
+        // Superincreasing
+        // Have the function Superincreasing(arr) take the array of numbers stored in arr and determine if the array forms a superincreasing sequence where each element in the array is greater than the sum of all previous elements. The array will only consist of positive integers. For example: if arr is [1, 3, 6, 13, 54] then your program should return the string "true" because it forms a superincreasing sequence. If a superincreasing sequence isn't formed, then your program should return the string "false"
+
+        function get_sum(arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += parseInt(arr[i]);
+            }
+            return sum;
+        }
+
+        function Superincreasing(arr) {
+            for (let i = 0; i < arr.length-1; i++) {
+                arr_copy = [...arr];
+                sub_arr = arr_copy.splice(0, i+1);
+                if (arr[i+1] <= get_sum(sub_arr)) {
+                    return 'false';
+                }
+            }
+            return 'true';
+        }
+
+        console.log(Superincreasing([1,3,6,13,54]));
+        console.log(Superincreasing([1,2,3,4]));
+        console.log(Superincreasing([1,2,5,10]));
+    </script>
+</body>
+</html>

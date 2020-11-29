@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderByte - Off Line Minimum</title>
+</head>
+<body>
+    <script>
+        // Off Line Minimum
+        // Have the function OffLineMinimum(strArr) take the strArr parameter being passed which will be an array of integers ranging from 1...n and the letter "E" and return the correct subset based on the following rules. The input will be in the following format: ["I","I","E","I",...,"E",...,"I"] where the I's stand for integers and the E means take out the smallest integer currently in the whole set. When finished, your program should return that new set with integers separated by commas. For example: if strArr is ["5","4","6","E","1","7","E","E","3","2"] then your program should return 4,1,5.
+
+        function OffLineMinimum(strArr) {
+            results = [];
+            while (strArr.indexOf('E') !== -1) {
+                subset = strArr.splice(0, strArr.indexOf('E') + 1);
+                subset = subset.splice(0, subset.indexOf('E'));
+                min = Math.min(...subset).toString();
+                results.push(min);
+                subset.splice(subset.indexOf(min), 1);
+                for (i = subset.length - 1; i >= 0; i--) {
+                    strArr.splice(0, 0, subset[i]);
+                }
+            }
+            return results.join(',');
+        }
+
+        console.log(OffLineMinimum(["5","4","6","E","1","7","E","E","3","2"]));
+        console.log(OffLineMinimum(["1","2","E","E","3"]));
+        console.log(OffLineMinimum(["4","E","1","E","2","E","3","E"]));
+    </script>
+</body>
+</html>
